@@ -1,0 +1,61 @@
+<html>
+    <head>
+        <title>
+            <%=title%>
+        </title>
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.5.0/css/all.css" integrity="sha384-B4dIYHKNBt8Bc12p+WXckhzcICo0wtJAoU8YZTY5qE0Id1GSseTk6S+L3BlXeVIU" crossorigin="anonymous">
+        <link rel="stylesheet" href="/css/home.css">
+    </head>
+    <body>
+        <div class="container">
+            <header>
+                <h2>TODO App</h2>
+            </header>
+
+            <div class="input-form">
+                <form action="/create-todo" method="POST" id="input-text">
+                    <label for="name" id="text-name">Description</label>
+                    <input type="text" name="name" id="name" placeholder="What do you need to do" required>
+                    <label for="category" id="text-name">Category</label>
+                    <select id="category" name="category">
+                        <option value="School">School</option>
+                        <option value="Work">Work</option>
+                        <option value="Home">Home</option>
+                        <option value="other">other</option>
+                    </select>
+                    <label for="date" id="text-name">Due Date</label>
+                    <input type="date" name="date" id="date" placeholder="mm/dd/yyyy" required>
+                    
+                    <div id="button">
+                        <button type="submit" id="submit-button">Add Task</button>
+                        <button type="submit" id="delete-task" form="del-form">Delete Task</button>
+                    </div>
+                </form>
+                
+                <div id="task-container">
+                    <div id="checkbox">
+                        <form action="/delete-todo" method="POST" id="del-form">
+                            <% let j=0%>
+                            <% for(let i of todolist){ %>     
+                            <%var date = new Date(i.Date);%>
+                                <div id="input-field">
+                                    <input type="checkbox" id="check" name="<%=i._id%>">
+                                    <label for="check" id="task-content">
+                                        <h4><%= i.Description %></h4>
+                                        <p><i class="fas fa-calendar-alt"></i> <%= date.toDateString(); %></p>
+                                    </label>
+                                    <div id="category-content">
+                                        <p><%= i.Category %></p>
+                                    </div>
+                                </div>
+                                <%j++%> 
+                            <%}%>
+                        </form>    
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </body>
+</html>
