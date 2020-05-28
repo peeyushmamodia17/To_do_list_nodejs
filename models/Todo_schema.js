@@ -1,5 +1,7 @@
+// add the mongoose file
 const mongoose=require('mongoose');
 
+// make todoschema for todo list for different-different fields
 const todoSchema=new mongoose.Schema({
     Description:{
         type: String,

@@ -1,3 +1,4 @@
+/* css for body */
 body{
     margin: 0;
 
@@ -7,11 +8,14 @@ body{
     margin: 0 auto;
     padding: 20px;;
 }
+/* css for header */
 .container header{
     text-align: center;
     opacity: 0.6;
 }
 
+
+/* css for creating the input form */
 #text-name{
     color: #6d6464;
     border-top: 1px lightgray;
@@ -34,6 +38,8 @@ body{
 #name:focus{
     background-color: lightgray;
 }
+
+/* css for submit button */
 #submit-button{
     background-color: black;
     color: white;
@@ -73,6 +79,8 @@ label p{
 #check:focus{
     background-color: blue;
 }
+
+/* creating the delete form and print the data */
 #checkbox{
     width: 100%;
     
@@ -93,7 +101,6 @@ input[type=checkbox]:checked + label{
 
 #input-field{
     display: flex;
-    flex-wrap: wrap;
     box-sizing: border-box;
     border-top: 2px solid lightgray;
     width: 100%;

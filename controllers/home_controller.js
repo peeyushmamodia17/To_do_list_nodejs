@@ -1,5 +1,7 @@
+// add todo_schema by require and give it in Todo  
 const Todo=require('../models/Todo_schema'); 
 
+// give home or / to route for print the data of home page
 module.exports.home=function(req,res){
 
     Todo.find({},function(err,todo){
@@ -15,6 +17,7 @@ module.exports.home=function(req,res){
     });
 }
 
+// give route to create the todo data
 module.exports.create=function(req,res){
     Todo.create({
         Description:req.body.name,
@@ -30,6 +33,7 @@ module.exports.create=function(req,res){
     
 }
 
+// give route to delete the task data
 module.exports.delete=function(req,res){
     let id=req.body;
     for(let i in id){

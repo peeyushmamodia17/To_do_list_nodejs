@@ -9,11 +9,13 @@
     </head>
     <body>
         <div class="container">
+            <!-- add header to html form -->
             <header>
                 <h2>TODO App</h2>
             </header>
 
             <div class="input-form">
+                <!-- create the input form for getting user input in todo list-->
                 <form action="/create-todo" method="POST" id="input-text">
                     <label for="name" id="text-name">Description</label>
                     <input type="text" name="name" id="name" placeholder="What do you need to do" required>
@@ -27,21 +29,26 @@
                     <label for="date" id="text-name">Due Date</label>
                     <input type="date" name="date" id="date" placeholder="mm/dd/yyyy" required>
                     
+                    <!-- create two buttons one for add task and another for delete task -->
                     <div id="button">
                         <button type="submit" id="submit-button">Add Task</button>
+                        <!-- in delete form we give the id of that as form attribute and in delete form give the same id -->
                         <button type="submit" id="delete-task" form="del-form">Delete Task</button>
                     </div>
                 </form>
                 
                 <div id="task-container">
                     <div id="checkbox">
+                        <!-- form for delete the data -->
                         <form action="/delete-todo" method="POST" id="del-form">
+                            <!-- and also print the list of task -->
                             <% let j=0%>
                             <% for(let i of todolist){ %>     
                             <%var date = new Date(i.Date);%>
                                 <div id="input-field">
                                     <input type="checkbox" id="check" name="<%=i._id%>">
                                     <label for="check" id="task-content">
+                                        <!-- print the description,date & category -->
                                         <h4><%= i.Description %></h4>
                                         <p><i class="fas fa-calendar-alt"></i> <%= date.toDateString(); %></p>
                                     </label>
